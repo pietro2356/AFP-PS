@@ -1,5 +1,5 @@
 export interface IPaziente {
-  id?: number;
+  id: number;
   codicePaziente: TCodicePaziente;
   nome: string;
   cognome: string;

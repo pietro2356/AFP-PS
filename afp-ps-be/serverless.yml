@@ -6,14 +6,14 @@ provider:
   runtime: nodejs20.x
   region: us-east-1
   iam:
-    role: arn:aws:iam::590183771822:role/LabRole
+    role: ""
 
   environment:
-    DB_ENDPOINT: "db-afp-2024.cvq2w8w6chwy.us-east-1.rds.amazonaws.com"
+    DB_ENDPOINT: ""
     DB_PORT: 3306
-    DB_USER: "admin"
-    DB_PASSWORD: "password12345"
-    DB_NAME: "afp_ps"
+    DB_USER: ""
+    DB_PASSWORD: ""
+    DB_NAME: ""
 
   httpApi:
     cors: true
@@ -21,42 +21,42 @@ provider:
 functions:
 
   getAllPatients:
-    handler: src/handler_ps.getAllPatients
+    handler: src/handler.getAllPatients
     events:
       - httpApi:
           path: /getAllPatients
           method: GET
     
   getPatientById:
-    handler: src/handler_ps.getPatientById
+    handler: src/handler.getPatientById
     events:
       - httpApi:
           path: /getPatientById/{id}
           method: GET
 
   createPatient:
-    handler: src/handler_ps.createPatient
+    handler: src/handler.createPatient
     events:
       - httpApi:
           path: /createPatient
           method: POST
 
   updatePatient:
-    handler: src/handler_ps.updatePatient
+    handler: src/handler.updatePatient
     events:
       - httpApi:
           path: /updatePatient/{id}
           method: PUT
 
   deletePatient:
-    handler: src/handler_ps.deletePatient
+    handler: src/handler.deletePatient
     events:
       - httpApi:
           path: /deletePatient/{id}
           method: DELETE
 
   debugEvent:
-    handler: src/handler_ps.debugEvent
+    handler: src/handler.debugEvent
     events:
       - httpApi:
           path: /debugEvent/{id}
