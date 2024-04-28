@@ -1,0 +1,51 @@
+<p>inserimento-pazienti works!</p>
+
+<a routerLink="/">Dashboard</a>
+
+@if(idPaziente){
+  <h3>IdPaziente da modificare: {{idPaziente}}</h3>
+}
+
+
+<form [formGroup]="inserimentoPazienti" class="order">
+  <label for="codicePaziente">
+    Codice Paziente
+    <input type="text" id="codicePaziente" formControlName="codicePaziente" />
+  </label>
+  <label for="nome">
+    Nome
+    <input type="text" id="nome" formControlName="nome" />
+  </label>
+  <label for="cognome">
+    Cognome
+    <input type="text" id="cognome" formControlName="cognome" />
+  </label>
+  <label for="dataNascita">
+    Data di Nascita
+    <input type="date" id="dataNascita" formControlName="dataNascita" />
+  </label>
+  <label for="medico">
+    Medico
+    <input type="text" id="medico" formControlName="medico" />
+  </label>
+  <label for="codiceColore">
+    Codice Colore
+    <input type="text" id="codiceColore" formControlName="codiceColore" />
+  </label>
+  <label for="stato">
+    Stato paziente
+    <input type="text" id="stato" formControlName="stato" />
+  </label>
+  <label for="modalitaArrivo">
+    Modalità di arrivo
+    <input type="text" id="modalitaArrivo" formControlName="modalitaArrivo" />
+  </label>
+
+  @if(idPaziente){
+    <button (click)="inserisciPaziente()">Modifica Paziente</button>
+  }
+  @else{
+    <button (click)="inserisciPaziente()">Inserisci Paziente</button>
+  }
+
+</form>

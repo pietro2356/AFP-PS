@@ -1,0 +1,46 @@
+<h2>Tabella pazienti</h2>
+
+@if(stampaErrore !== undefined && stampaErrore){
+<p>Errore: {{ stampaErrore.message }}</p>
+} @else{
+<p>Nessun errore</p>
+}
+
+<table>
+  <tr>
+    <td>Id</td>
+    <td>Codice paziente</td>
+    <td>Nome</td>
+    <td>Cognome</td>
+    <td>Data di nascita</td>
+    <td>Medico</td>
+    <td>Codice colore</td>
+    <td>Stato</td>
+    <td>Modalità arrivo</td>
+    <td>Azioni</td>
+  </tr>
+
+  @for(pz of listaPazienti; track pz.id){
+  <tr>
+    <td>{{ pz.id }}</td>
+    <td>
+      <b>{{ pz.codicePaziente | uppercase }}</b>
+    </td>
+    <td>{{ pz.nome }}</td>
+    <td>{{ pz.cognome }}</td>
+    <td>{{ pz.dataNascita | date }}</td>
+    <td>{{ pz.medico }}</td>
+    <td>{{ pz.codiceColore }}</td>
+    <td>{{ pz.stato }}</td>
+    <td>{{ pz.modalitaArrivo }}</td>
+
+    <td>
+      <button (click)="modificaPaziente(pz)">Modifica</button>
+      <button (click)="dimettiPaziente(pz)">Dimetti</button>
+    </td>
+  </tr>
+
+  } @empty{
+  <p>Non ci sono pazienti</p>
+  }
+</table>
